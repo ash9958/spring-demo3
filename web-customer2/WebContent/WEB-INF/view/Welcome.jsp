@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Home</title>
 </head>
 	<body>
 		<h2>Home</h2>
-		<a href="customer/list">Band Details</a>
+		<hr>
+		<a href="banddetails/list">Band Details</a>
 		<br><br>
 		<a href="bandOptions/showForm">Band Options</a>
 </body>

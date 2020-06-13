@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import com.ashish.spring.entity.BandDetails;
+import com.ashish.spring.entity.BandCo;
 
 @Service
 @Repository
@@ -22,15 +22,22 @@ public class BandDaoImpl implements BandDao {
 
 	@Override
 	@Transactional
-	public List<BandDetails> getBandDetails() {
-		
-		Session currentSession = sessionFactory.getCurrentSession();
-		
-		Query<BandDetails> theQuery = currentSession.createQuery("from BandDetails", BandDetails.class);
+	public List<BandCo> getBandDetails() {
 
-		List<BandDetails> banddetails = theQuery.getResultList();
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		Query<BandCo> theQuery = currentSession.createQuery("from BandCo", BandCo.class);
+
+		List<BandCo> banddetails = theQuery.getResultList();
 
 		return banddetails;
+	}
+
+	@Override
+	@Transactional
+	public void saveData(BandCo theBandCo) {
+		Session cuSession = sessionFactory.getCurrentSession();
+		cuSession.save(theBandCo);
 	}
 
 }
